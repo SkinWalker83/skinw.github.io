@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pergunta e Alternativas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+    }
+    form {
+      margin-top: 20px;
+    }
+    label {
+      margin-right: 10px;
+    }
+    button {
+      margin-top: 10px;
+    }
+    #resultado {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pergunta:</h1>
+  <p>Qual é a capital da França?</p>
+
+  <form>
+    <input type="radio" id="alternativaA" name="resposta" value="Paris">
+    <label for="alternativaA">Paris</label>
+
+    <input type="radio" id="alternativaB" name="resposta" value="Londres">
+    <label for="alternativaB">Londres</label>
+
+    <button type="button" onclick="verificarResposta()">Verificar Resposta</button>
+  </form>
+
+  <p id="resultado"></p>
+
+  <script>
+    function verificarResposta() {
+      var respostaEscolhida = document.querySelector('input[name="resposta"]:checked');
+      var resultadoElemento = document.getElementById('resultado');
+
+      if (respostaEscolhida) {
+        var resposta = respostaEscolhida.value;
+        if (resposta === "Paris") {
+          resultadoElemento.textContent = "Correto! Paris é a capital da França.";
+        } else {
+          resultadoElemento.textContent = "Incorreto. Tente novamente.";
+        }
+      } else {
+        resultadoElemento.textContent = "Por favor, escolha uma alternativa.";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
